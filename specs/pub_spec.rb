@@ -64,16 +64,18 @@ def test_can_sell_drink
 end
 
 def test_cannot_sell_drink__underage
-  @pub1.sell_drink(@drink1, @customer2)
+test =  @pub1.sell_drink(@drink1, @customer2)
   assert_equal(1000, @pub1.till)
   assert_equal(5, @pub1.stock_count)
+  assert_equal("Service refused!", test)
 end
 
 def test_cannot_sell_drink__too_drunk
   @customer1.change_drunkenness(@drink2)
-  @pub1.sell_drink(@drink1, @customer1)
+  test = @pub1.sell_drink(@drink1, @customer1)
   assert_equal(1000, @pub1.till)
   assert_equal(5, @pub1.stock_count)
+  assert_equal("Service refused!", test)
 end
 
 

@@ -38,6 +38,7 @@ def sell_drink(drink, customer)
       remove_from_stock(drink)
     end
   end
+  return "Service refused!"
 end
 
 

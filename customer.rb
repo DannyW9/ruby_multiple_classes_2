@@ -19,8 +19,8 @@ def change_drunkenness(drink)
 end
 
 def buy_drink(pub, drink, customer)
-  customer.adjust_wallet(drink)
   pub.sell_drink(drink, customer)
+  customer.adjust_wallet(drink)
 end
 
 end
