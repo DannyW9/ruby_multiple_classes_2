@@ -9,7 +9,7 @@ class CustomerTest < MiniTest::Test
 
 def setup
   @customer1 = Customer.new("Danny", 100, 26)
-  @drink1 = Drink.new("Guiness", 4)
+  @drink1 = Drink.new("Guiness", 4, 2)
   @pub1 = Pub.new("Howlin Wolf", 1000, [@drink1])
 end
 
@@ -22,6 +22,11 @@ end
 def test_can_adjust_wallet
   @customer1.adjust_wallet(@drink1)
   assert_equal(96, @customer1.wallet)
+end
+
+def test_can_change_drunkenness
+  @customer1.change_drunkenness(@drink1)
+  assert_equal(2, @customer1.drunkenness)
 end
 
 def test_can_buy_drink

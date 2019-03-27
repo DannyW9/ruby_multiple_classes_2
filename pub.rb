@@ -19,8 +19,12 @@ end
 
 def check_age(customer)
  return true if customer.age >= 18
-else
-  return false
+ return false if customer.age < 18
+end
+
+def check_drunkenness(customer)
+  return true if customer.drunkenness < 10
+  return false if customer.drunkenness >= 10
 end
 
 def adjust_till(drink)
@@ -29,9 +33,11 @@ end
 
 def sell_drink(drink, customer)
   if check_age(customer) == true
-  adjust_till(drink)
-  remove_from_stock(drink)
-end
+    if check_drunkenness(customer) == true
+      adjust_till(drink)
+      remove_from_stock(drink)
+    end
+  end
 end
 
 
