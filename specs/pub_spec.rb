@@ -78,6 +78,12 @@ def test_cannot_sell_drink__too_drunk
   assert_equal("Service refused!", test)
 end
 
+def test_full_stock_count
+  stock = @pub1.full_stock_count
+  assert_equal({"Guiness"=>2, "Zombie"=>1, "St Mungo"=>1, "Tequila"=>1}, stock)
+end
 
-
+def test_stock_value
+  assert_equal(25, @pub1.stock_value)
+end
 end

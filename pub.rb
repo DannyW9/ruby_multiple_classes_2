@@ -7,6 +7,7 @@ def initialize(name, till, drinks)
   @name = name
   @till = till
   @drinks = drinks
+  @stock = {}
 end
 
 def stock_count
@@ -27,8 +28,8 @@ def check_drunkenness(customer)
   return false if customer.drunkenness >= 10
 end
 
-def adjust_till(drink)
-  @till += drink.price
+def adjust_till(product)
+  @till += product.price
 end
 
 def sell_drink(drink, customer)
@@ -37,6 +38,25 @@ def sell_drink(drink, customer)
       remove_from_stock(drink)
     end
   return "Service refused!"
+end
+
+def full_stock_count
+  for drink in @drinks
+    if @stock.include? (drink.name)
+      @stock[drink.name] += 1
+    else
+      @stock[drink.name] = 1
+    end
+  end
+  return @stock
+end
+
+def stock_value
+  value = 0
+  for drink in @drinks
+    value += drink.price
+  end
+  return value
 end
 
 
