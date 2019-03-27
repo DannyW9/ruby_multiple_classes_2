@@ -19,8 +19,13 @@ def test_can_get_customer_details
   assert_equal(26, @customer1.age)
 end
 
+def test_can_adjust_wallet
+  @customer1.adjust_wallet(@drink1)
+  assert_equal(96, @customer1.wallet)
+end
+
 def test_can_buy_drink
-  @customer1.buy_drink(@pub1, @drink1)
+  @customer1.buy_drink(@pub1, @drink1, @customer1)
   assert_equal(96, @customer1.wallet) #wallet decreases
   assert_equal(1004, @pub1.till) #till increases
 end

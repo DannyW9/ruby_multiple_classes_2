@@ -30,6 +30,11 @@ def test_remove_drink_from_stock
   assert_equal(4, @pub1.stock_count)
 end
 
+def test_can_adjust_till
+  @pub1.adjust_till(@drink1)
+  assert_equal(1004, @pub1.till)
+end
+
 def test_check_customer_age
   result = @pub1.check_age(@customer1)
   assert_equal(true, result)

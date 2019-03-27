@@ -23,9 +23,13 @@ else
   return false
 end
 
+def adjust_till(drink)
+  @till += drink.price
+end
+
 def sell_drink(drink, customer)
   if check_age(customer) == true
-  @till += drink.price
+  adjust_till(drink)
   remove_from_stock(drink)
 end
 end

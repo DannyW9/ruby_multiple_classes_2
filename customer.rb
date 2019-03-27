@@ -8,9 +8,13 @@ def initialize(name, wallet, age)
   @age = age
 end
 
-def buy_drink(pub, drink)
+def adjust_wallet(drink)
   @wallet -= drink.price
-  pub.sell_drink(drink)
+end
+
+def buy_drink(pub, drink, customer)
+  customer.adjust_wallet(drink)
+  pub.sell_drink(drink, customer)
 end
 
 end
