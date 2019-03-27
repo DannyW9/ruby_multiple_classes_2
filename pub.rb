@@ -32,12 +32,10 @@ def adjust_till(drink)
 end
 
 def sell_drink(drink, customer)
-  if check_age(customer) == true
-    if check_drunkenness(customer) == true
+  if check_age(customer) == true && check_drunkenness(customer) == true
       adjust_till(drink)
       remove_from_stock(drink)
     end
-  end
   return "Service refused!"
 end
 
